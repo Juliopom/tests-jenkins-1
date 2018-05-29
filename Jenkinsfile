@@ -8,9 +8,13 @@ pipeline {
             echo 'Esto es un mensaje de prueba'
           }
         }
-        stage('') {
+        stage('error') {
           steps {
             sh 'echo "prueba 2"'
+            retry(count: 5) {
+              echo 'vamos a por los 5'
+            }
+
           }
         }
       }
